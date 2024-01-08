@@ -38,7 +38,8 @@ class ProductsController extends Controller
         }
     }
     public function read(){
-        $items = Products::all();
+//        $items = Products::all();
+        $items = Products::with('photo')->get();
         return view('pages.read', compact('items'));
     }
 }
