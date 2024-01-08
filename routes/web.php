@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::view('crud', 'pages.crud');
 Route::post('save-products', [ProductsController::class,'save']);
+Route::get('read',[ProductsController::class,'read']);

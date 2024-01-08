@@ -35,8 +35,10 @@ class ProductsController extends Controller
             DB::commit();
         }catch (\Exception $e){
             DB::rollBack();
+        }
     }
-
-
-     }
+    public function read(){
+        $items = Products::all();
+        return view('pages.read', compact('items'));
+    }
 }
