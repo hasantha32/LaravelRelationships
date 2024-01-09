@@ -37,5 +37,6 @@
         function edit(id) {
             location.href = "edit/" + id;
         }
+        alert("ok")
     </script>
 @endsection

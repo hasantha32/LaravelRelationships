@@ -52,7 +52,7 @@ class ProductsController extends Controller
     public function update(Request $request)
     {
         $items = Products::where('id', $request->id)->first();
-        $items->name = $request->price;
+        $items->name = $request->name;
         $items->price = $request->price;
         $items->quantity = $request->quantity;
         $items->update();
