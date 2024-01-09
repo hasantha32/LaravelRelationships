@@ -21,7 +21,12 @@
                             </td>
                             <td>
                                 <input type="button" class="btn btn-success" value="Update" onclick="edit({{ $item->id}})" />
-                                <input type="button" class="btn btn-danger" value="Delete" />
+                                <form method="post" action="delete">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="number" name="id" value="{{ $item->id }}" hidden readonly />
+                                    <input type="submit" class="btn btn-danger" value="Delete" />
+                                </form>
                             </td>
                         </tr>
                     @endforeach

@@ -72,4 +72,14 @@ class ProductsController extends Controller
         }
         return back();
     }
+
+    public function delete(Request $request)
+    {
+        $photo = Photos::where('product_id',$request->id)->first();
+        File::delete($photo->path);
+        $photo->delete();
+        Products::where('id', $request->id)->delete();
+
+        return back();
+    }
 }
