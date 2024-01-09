@@ -8,6 +8,7 @@ use App\Models\Photos;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ProductsController extends Controller
 {
@@ -57,6 +58,18 @@ class ProductsController extends Controller
         $items->quantity = $request->quantity;
         $items->update();
 
+        if($request->has('image')){
+            $photo = Photos::where('product_id',$items->id)->first();
+            File::delete($photo->path);
+
+            $imageName = $request->image->getClientOriginalName();
+
+            //store the photo in project folder
+            $request->image->move(public_path('images'),$imageName);
+            $photo->path = 'image/' .$imageName;
+            $photo->product_id = $items->id;
+            $photo->save();
+        }
         return back();
     }
 }

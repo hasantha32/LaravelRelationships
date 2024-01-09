@@ -20,10 +20,10 @@
                         <label for="quantity">Quantity</label>
                         <input type="number" value="{{$item->quantity}}" name="quantity" id="quantity" class="form-control" />
                     </div>
-{{--                    <div class="col-md-3">--}}
-{{--                        <label for="image">Image</label>--}}
-{{--                        <input type="file" accept="image/*" name="image" id="image" />--}}
-{{--                    </div>--}}
+                    <div class="col-md-3">
+                        <label for="image">Image</label>
+                        <input type="file" accept="image/*" name="image" id="image" />
+                    </div>
                     <div class="col-md-3">
                         <input type="submit" value="Submit" class="btn btn-success" />
                     </div>
