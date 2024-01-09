@@ -42,4 +42,21 @@ class ProductsController extends Controller
         $items = Products::with('photo')->get();
         return view('pages.read', compact('items'));
     }
+
+    public function edit($id)
+    {
+        $item = Products::where('id',$id)->first();
+        return view('pages.editView', compact('item'));
+    }
+
+    public function update(Request $request)
+    {
+        $items = Products::where('id', $request->id)->first();
+        $items->name = $request->price;
+        $items->price = $request->price;
+        $items->quantity = $request->quantity;
+        $items->update();
+
+        return back();
+    }
 }

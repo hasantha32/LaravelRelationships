@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::view('crud', 'pages.crud');
 Route::post('save-products', [ProductsController::class,'save']);
 Route::get('read',[ProductsController::class,'read']);
+Route::get('edit/{id}',[ProductsController::class, 'edit']);
+Route::put('update',[ProductsController::class,'update']);

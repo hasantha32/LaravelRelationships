@@ -8,6 +8,7 @@
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Photo</th>
+                    <th>Action</th>
                 </thead>
                 <tbody>
                     @foreach($items as $item)
@@ -18,14 +19,23 @@
                             <td>
                                 <img src="{{ URL::asset($item->photo->path) }}" style="width: 25%" alt="img"/>
                             </td>
+                            <td>
+                                <input type="button" class="btn btn-success" value="Update" onclick="edit({{ $item->id}})" />
+                                <input type="button" class="btn btn-danger" value="Delete" />
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
-
             </table>
         </div>
     </div>
-
 @endsection
 
-
+@section('scripts')
+    <script>
+        // Define the edit function
+        function edit(id) {
+            location.href = "edit/" + id;
+        }
+    </script>
+@endsection
